@@ -1,0 +1,47 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar-tone">
+        <!-- 
+        Use the NavigationButton as a side-drawer button in Android
+        because ActionItems are shown on the right side of the ActionBar
+        -->
+        
+        <!-- 
+        Use the ActionItem for IOS with position set to left. Using the
+        NavigationButton as a side-drawer button in iOS is not possible,
+        because its function is to always navigate back in the application.
+        -->
+        
+        <Label class="action-bar-title" text="Login"></Label>
+    </ActionBar>
+    
+
+    <GridLayout rows="150,250">
+    <StackLayout row="0" class="page1">  
+         <GridLayout columns="*,250,*"> 
+            <StackLayout col="1">  
+            <Image src="~/images/pdologo.png" stretch="aspectFit"></Image>
+            </StackLayout>
+         </GridLayout>
+    </StackLayout>
+        
+    <FlexboxLayout row="1" class="page1" >  
+     
+                <StackLayout class="form">
+                 <StackLayout class="input-field">
+                 <TextField class="input, input-border" id="usrtxtfld" hint="Username" text="olawale.ogunlade@up-ng.com" keyboardType="email"></TextField>
+                </StackLayout>
+                <StackLayout class="input-field" >
+                 <TextField class="input, input-border" id="passtxtfld" hint="Password" text="Admin@12345" secure="true"></TextField>
+                </StackLayout> 
+                <Button text="Login" class="btn btn-orange" tap ="onLoginTap"></Button>   
+                <ActivityIndicator id="myIndicator" busy="false" width="30" height="30" color="DeepSkyBlue" />                
+                 </StackLayout>  
+                 <Label class="p" id="loginstatus" text=""/>
+                 
+    </FlexboxLayout>
+    </GridLayout>
+</Page>
