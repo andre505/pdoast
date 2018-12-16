@@ -47,7 +47,8 @@ function onItemTap(args){
 
 }
 function onDrawerButtonTap(args) {
-    const sideDrawer = app.getRootView();
+    const sideDrawer = app.getRootView();      
+    sideDrawer.bindingContext = args.object.bindingContext;
     sideDrawer.showDrawer();
 }
 
