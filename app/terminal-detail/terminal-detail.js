@@ -37,7 +37,9 @@ function onCloseTap(args){
     var tskcloselbl= view.getViewById(page, "taskcloselabel");
     var commentlbl= view.getViewById(page, "commentlabel");
     var closesuccesslbl = view.getViewById(page, "closesuccesslabel");
+    //buttons
     var closebt = view.getViewById(page, "closebtn");
+    var escalatebt = view.getViewById(page, "escalatebtn");
     var returnbtn = view.getViewById(page, "terminalreturn");
     var idOftask = button.bindingContext.terminal.id;
     var comment = commentlbl.text;
@@ -59,6 +61,7 @@ function onCloseTap(args){
             tskcloselbl.class="pone";
             commentlbl.class="pone";
             closebt.class="pone";
+            escalatebt.class="pone";
             //
             closesuccesslbl.class="taskclosed";              
             ac.busy = false;
@@ -81,6 +84,8 @@ function onCloseTap(args){
     }); 
     
 }
+
+
 
 function tapToReturn(args) {
 
@@ -118,8 +123,12 @@ function tapToReturn(args) {
     });  
 }
 
+function onEscalateTap(args){
+}
+
 function onDrawerButtonTap(args) {
     const sideDrawer = app.getRootView();
+    sideDrawer.bindingContext = args.object.bindingContext;
     sideDrawer.showDrawer();
 }
 
@@ -130,3 +139,4 @@ exports.onNavigatingTo = onNavigatingTo;
 exports.onDrawerButtonTap = onDrawerButtonTap;
 exports.onCloseTap = onCloseTap;
 exports.tapToReturn = tapToReturn;
+exports.onEscalateTap = onEscalateTap;

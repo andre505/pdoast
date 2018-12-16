@@ -10,7 +10,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
     <nsDrawer:RadSideDrawer.drawerContent>
         <GridLayout rows="auto, *" class="sidedrawer sidedrawer-left">
-            <StackLayout class="sidedrawer-header">
+            <StackLayout class="sidedrawer-header" style="background-color: rgb(27, 25, 25);">
                 <Label class="sidedrawer-header-image fa" text="&#xf2bd;" />
                 <Label class="sidedrawer-header-brand" text="{{param1}}" />
                 <Label class="footnote" text="{{param2}}" />

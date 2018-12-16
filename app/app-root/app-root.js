@@ -14,7 +14,7 @@ function onNavigationItemTap(args) {
     const componentTitle = component.title;
     const bindingContext = component.bindingContext;
 
-    bindingContext.set("selectedPage", componentTitle);
+    //bindingContext.set("selectedPage", componentTitle);
 
     frameModule.topmost().navigate({
         moduleName: componentRoute,
