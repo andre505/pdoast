@@ -2,8 +2,8 @@ const observableModule = require("tns-core-modules/data/observable");
 
 const SelectedPageService = require("../shared/selected-page-service");
 
-function ClosedTViewModel() {
-    SelectedPageService.getInstance().updateSelectedPage("Closedtasks");
+function EscalatedViewModel() {
+    SelectedPageService.getInstance().updateSelectedPage("EscalatedTasks");
 
     const viewModel = observableModule.fromObject({
         /* Add your view model properties here */
@@ -12,4 +12,4 @@ function ClosedTViewModel() {
     return viewModel;
 }
 
-module.exports = ClosedTViewModel;
+module.exports = EscalatedViewModel;

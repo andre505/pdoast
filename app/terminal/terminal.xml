@@ -19,10 +19,10 @@
             tap="onDrawerButtonTap"
             ios.position="left">
         </ActionItem>
-        <Label class="action-bar-title" text="Terminals"></Label>
+        <Label class="action-bar-title" text="Tasks"></Label>
     </ActionBar>    
     <StackLayout>             
-        <Label class="p" id="tokeholder" text="param3"></Label>  
+        <Label class="p" id="tokeholder" text="{{param3}}"></Label>  
         <Label text="{{terminalist.length}}"></Label>  
     </StackLayout>
     <ListView class="list-group" items="{{ terminalist }}" itemTap="onItemTap">

@@ -39,8 +39,7 @@ function onLoginTap(args) {
 
         if (result.success){    
             usertoken = result.status;
-            useridentity = result.name;
-            
+            useridentity = result.name;            
             appSettings.setString(user, usertoken);
             //var toke = appSettings.getString(user);
             //Get Terminal List
@@ -62,7 +61,7 @@ function onLoginTap(args) {
                             duration: 380,
                             curve: "easeIn"
                         },
-                clearHistory: true               
+                //clearHistory: true               
             };
             page.frame.navigate(navigationEntry)    
 

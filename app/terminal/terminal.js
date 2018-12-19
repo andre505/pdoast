@@ -13,8 +13,7 @@ function onNavigatingTo(args) {
 
     ///
     //var label = view.getViewById(page, "tokeholder");
-    //var bearertoken = label.text;
-     
+    //var bearertoken = label.text;     
 }
 
 function onItemTap(args){
@@ -23,13 +22,18 @@ function onItemTap(args){
     const indexOfRecord = args.index;
     var allterminals = button.bindingContext.terminalist;
     var record = button.bindingContext.terminalist[indexOfRecord];
+    var userName = button.bindingContext.param1;
+    var userEmail = button.bindingContext.param2;
     var token = button.bindingContext.param3;
     const navigationEntry = {
         moduleName: "terminal-detail/terminal-detail",
        context: {
-           terminals: allterminals,
+           param1: userName,
+           param2: userEmail,
+           param3: token,
+           terminalist: allterminals,
            terminal: record,
-           tokenparam: token 
+           
         },
         animated: true,
         transition: {

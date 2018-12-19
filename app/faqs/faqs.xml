@@ -3,7 +3,7 @@
     navigatingTo="onNavigatingTo"  
     xmlns="http://schemas.nativescript.org/tns.xsd">
 
-    <ActionBar class="action-bar">
+    <ActionBar class="action-bar-tone">
         <!-- 
         Use the NavigationButton as a side-drawer button in Android
         because ActionItems are shown on the right side of the ActionBar
@@ -24,6 +24,6 @@
 
     <GridLayout class="page-content">
         <Label class="page-icon fa" text="&#xf005;"></Label>
-        <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
+        <Label class="page-placeholder" text="<!-- How to -->"></Label>
     </GridLayout>
 </Page>

@@ -19,19 +19,36 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
             <ScrollView row="1">
                 <StackLayout class="sidedrawer-content">
 
+                <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Terminal' ? ' selected': '') }}"
+                        route="terminal/terminal" title="Taskss" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf005;" class="fa" />
+                        <Label row="0" col="1" text="Open Tasks" class="p-r-10" />                        
+                        <ActivityIndicator row="0" col="1" id="tasksIndicator" busy="false" width="20" height="20" color="orange" />
+                </GridLayout>
+                <StackLayout class="hr-light"></StackLayout>
+                
+
                 <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Closed-Tasks' ? ' selected': '') }}"
                         route="closed/closed-tasks" title="ClosedTasks" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf005;" class="fa" />
-                        <Label row="0" col="1" text="Closed Tasks" class="p-r-10" />
+                        <Label row="0" col="1" text="Closed Tasks" class="p-r-10" />                        
+                        <ActivityIndicator row="0" col="1" id="closedIndicator" busy="false" width="20" height="20" color="orange" />
                 </GridLayout>
+                <StackLayout class="hr-light"></StackLayout>  
 
-                    <StackLayout class="hr-light"></StackLayout>
-                   
-
-                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Terminal' ? ' selected': '') }}"
-                        route="featured/featured-page" title="FAQs" tap="onNavigationItemTap">
+                <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Escalated' ? ' selected': '') }}"
+                        route="terminal/terminal" title="Excalibur" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf005;" class="fa" />
-                        <Label row="0" col="1" text="Frequently Asked Questions" class="p-r-10" />
+                        <Label row="0" col="1" text="Escalated Tasks" class="p-r-10" />                        
+                        <ActivityIndicator row="0" col="1" id="escalateIndicator" busy="false" width="20" height="20" color="orange" />
+                </GridLayout>
+                <StackLayout class="hr-light"></StackLayout>              
+                
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Faqs' ? ' selected': '') }}"
+                        route="faqs/faqs" title="FAQs" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf005;" class="fa" />
+                        <Label row="0" col="1" text="PDO Guide" class="p-r-10" />
                     </GridLayout>
 
                     <StackLayout class="hr-light"></StackLayout>
