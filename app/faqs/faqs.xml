@@ -19,7 +19,7 @@
             tap="onDrawerButtonTap"
             ios.position="left">
         </ActionItem>
-        <Label class="action-bar-title" text="FAQs"></Label>
+        <Label class="action-bar-title" text="PDO Guide"></Label>
     </ActionBar>
 
     <GridLayout class="page-content">

@@ -1,0 +1,38 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar-tone">
+        <!-- 
+        Use the NavigationButton as a side-drawer button in Android
+        because ActionItems are shown on the right side of the ActionBar
+        -->
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+        <!-- 
+        Use the ActionItem for IOS with position set to left. Using the
+        NavigationButton as a side-drawer button in iOS is not possible,
+        because its function is to always navigate back in the application.
+        -->
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Escalated Tasks"></Label>
+    </ActionBar>
+
+   <ListView class="list-group" items="{{ escalatedterminalist }}" itemTap="onItemTap">
+    <ListView.itemTemplate>
+        <GridLayout class="list-group-item" rows="45, auto, *,auto" columns="70,*">
+        <Image row="0" col="0" src= "~/images/pos_terminal_icon.png" class="thumb img-circle" rowSpan="2"></Image>
+        <Label width="500" textWrap="true" row="0" col="1" text="{{terminal.merchantName}}" class="h3"/>
+        <Label row="1" col="1" text="{{terminal.PHYSICALADDR}}" class="h4" />
+        <Label row="2" col="0" text="{{terminal.terminalId}}" class="termid, ash"/>
+        <Label row="2" col="1" text="{{'Task: ' +detail}}" class="list-group-item-text, orange" />         
+        <Label id="treat" row="3" col="1" text="{{taskStatus}}" class="list-group-item-text, greenn" />         
+     
+        </GridLayout>
+    </ListView.itemTemplate>
+    </ListView>        
+</Page>

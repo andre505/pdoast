@@ -61,7 +61,7 @@ function onLoginTap(args) {
                             duration: 380,
                             curve: "easeIn"
                         },
-                //clearHistory: true               
+                clearHistory: true               
             };
             page.frame.navigate(navigationEntry)    
 

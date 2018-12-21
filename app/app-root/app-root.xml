@@ -37,7 +37,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                 <StackLayout class="hr-light"></StackLayout>  
 
                 <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Escalated' ? ' selected': '') }}"
-                        route="terminal/terminal" title="Excalibur" tap="onNavigationItemTap">
+                        route="escalated/escalated" title="Excalibur" tap="onNavigationItemTap">
                         <Label row="0" col="0" text="&#xf005;" class="fa" />
                         <Label row="0" col="1" text="Escalated Tasks" class="p-r-10" />                        
                         <ActivityIndicator row="0" col="1" id="escalateIndicator" busy="false" width="20" height="20" color="orange" />

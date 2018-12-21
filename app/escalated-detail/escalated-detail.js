@@ -9,7 +9,8 @@ const switchModule = require("tns-core-modules/ui/switch");
 function onNavigatingTo(args) {
     const page = args.object;
     const navigationContext = page.navigationContext;
-    page.bindingContext = navigationContext;         
+    page.bindingContext = navigationContext;      
+    
 }
 
 function onCloseTap(args){    
@@ -114,65 +115,6 @@ function tapToReturn(args) {
     });  
 }
 
-function onEscalateTap(args){
-    const button = args.object;
-    const page = button.page;
-    var ac = view.getViewById(page, "myIndicator");
-    ac.busy = true;
-    var tskcloselbl= view.getViewById(page, "taskcloselabel");
-    var commentlbl= view.getViewById(page, "commentlabel");
-    var closesuccesslbl = view.getViewById(page, "closesuccesslabel");
-    //buttons
-    var closebt = view.getViewById(page, "closebtn");
-    var escalatebt = view.getViewById(page, "escalatebtn");
-    var returnbtn = view.getViewById(page, "terminalreturn");
-    var idOftask = button.bindingContext.terminal.id;
-    var comment = commentlbl.text;
-    var token = button.bindingContext.param3;
-    //escalate request
-    httpModule.request({
-        url: "http://172.19.15.88:5000/api/task/EscalateTask",
-        method: "POST",
-        headers: { "Content-Type": "application/json","Authorization":"Bearer"+ " "+token},
-        content: JSON.stringify({
-            Id : idOftask,
-            PdoComment: comment,
-            TaskStatus: 2            
-        })
-        }).then((response1) => {
-        const result = response1.content.toJSON();
-
-        if (result.Success = true){ 
-            tskcloselbl.class="pone";
-            commentlbl.class="pone";
-            closebt.class="pone";
-            escalatebt.class="pone";
-            //
-            closesuccesslbl.class="taskclosed";    
-            closesuccesslbl.text="Task escalated successfully";          
-            ac.busy = false;
-            returnbtn.class="btn, btn-outline";           
-            
-
-        }
-        else 
-        {   
-            closesuccesslbl.class="taskclosederror";
-            closesuccesslbl.text="An error occurred, please try again";
-           
-            //page.frame.navigate("login/home-page"); 
-            //var signedinpdo = new pdo; --------------formerly before navigation entry
-            //signedinpdo.token = usertoken;
-            //signedinpdo.Username = useridentity;           
-        }
-
-        //response.forEach(x => navigationContext.myterminalist.push(x));    
-    }, (e) => {       
-       
-    }); 
-
-}
-
 function onDrawerButtonTap(args) {
     const sideDrawer = app.getRootView();
     sideDrawer.bindingContext = args.object.bindingContext;
@@ -183,4 +125,3 @@ exports.onNavigatingTo = onNavigatingTo;
 exports.onDrawerButtonTap = onDrawerButtonTap;
 exports.onCloseTap = onCloseTap;
 exports.tapToReturn = tapToReturn;
-exports.onEscalateTap = onEscalateTap;
