@@ -44,14 +44,11 @@ function onCloseTap(args){
         if (result.Success = true){ 
             tskcloselbl.class="pone";
             commentlbl.class="pone";
-            closebt.class="pone";
-            escalatebt.class="pone";
-            //
+            closebt.class="pone";                      
             closesuccesslbl.class="taskclosed";
-            closesuccesslbl.text="Task closed successfully";      
+            closesuccesslbl.text="Task Closed Successfully";      
             ac.busy = false;
-            returnbtn.class="btn, btn-outline";           
-            
+            returnbtn.class="btn, btn-outline";    
 
         }
         else 
@@ -92,18 +89,35 @@ function tapToReturn(args) {
     //remove item    
     //navigate back to page
     httpModule.getJSON({
-        url: "http://172.19.15.88:5000/api/task/index",
+        url: "http://172.19.15.88:5000/api/task/escalatedtasks",
         method: "GET",
         headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+usertoken}
     }).then((response) => {               
     myterminalist = response;
+    //
+    myterminalist.sort(function(a, b){return parseInt(b.taskStatus) - parseInt(a.taskStatus)});
+
+            //if (response.taskStatus == 3){
+              //  treaTed = "Treated";
+            //}
+            for(var i = 0; i < myterminalist.length; i++) {
+               var obj = myterminalist[i];
+               if (obj.taskStatus == 3){
+                obj.taskStatus = "Treated";                
+               }  
+               else{
+                obj.taskStatus = "";                
+               }            
+                               
+         }
+    //
     const navigationEntry = {
-        moduleName: "terminal/terminal",
+        moduleName: "escalated/escalated",
        context: {
                 param1: fullName,
                 param2: userEmail,
                 param3: usertoken,
-                terminalist: myterminalist},
+                escalatedterminalist: myterminalist},
         animated: false               
     };
     page.frame.navigate(navigationEntry);   
