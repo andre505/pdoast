@@ -154,7 +154,7 @@ function onEscalateTap(args){
             returnbtn.class="btn, btn-outline";
         }
         else 
-        {   
+        {   ac.busy = false;
             closesuccesslbl.class="taskclosederror";
             closesuccesslbl.text="An error occurred, please try again";
            
@@ -165,8 +165,7 @@ function onEscalateTap(args){
         }
 
         //response.forEach(x => navigationContext.myterminalist.push(x));    
-    }, (e) => {       
-       
+    }, (e) => {                        
     }); 
 
 }
