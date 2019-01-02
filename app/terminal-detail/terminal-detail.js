@@ -151,9 +151,7 @@ function onEscalateTap(args){
             closesuccesslbl.class="taskclosed";    
             closesuccesslbl.text="Task escalated successfully";          
             ac.busy = false;
-            returnbtn.class="btn, btn-outline";           
-            
-
+            returnbtn.class="btn, btn-outline";
         }
         else 
         {   
