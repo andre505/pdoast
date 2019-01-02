@@ -26,7 +26,7 @@ function onCloseTap(args){
     var returnbtn = view.getViewById(page, "terminalreturn");
     var idOftask = button.bindingContext.terminal.id;
     var comment = commentlbl.text;
-    var token = button.bindingContext.tokenparam;
+    var token = button.bindingContext.param3;
     //update request
     httpModule.request({
         url: "http://172.19.15.88:5000/api/task/UpdateTask",
