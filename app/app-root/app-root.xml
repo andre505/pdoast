@@ -42,7 +42,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         <Label row="0" col="1" text="Escalated Tasks" class="p-r-10" />                        
                         <ActivityIndicator row="0" col="1" id="escalateIndicator" busy="false" width="20" height="20" color="orange" />
                 </GridLayout>
-                <StackLayout class="hr-light"></StackLayout>              
+                <StackLayout class="hr-light"></StackLayout>               
                 
 
                     <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Faqs' ? ' selected': '') }}"
@@ -58,8 +58,12 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         <Label row="0" col="0" text="&#xf013;" class="fa" />
                         <Label row="0" col="1" text="Logout" class="p-r-10" />
                     </GridLayout>
-                </StackLayout>
+
+                 <Label class="text-error" id="errorholder" dock="bottom" text="" height="30"/>
+                    
+                </StackLayout>                
             </ScrollView>
+            
         </GridLayout>
     </nsDrawer:RadSideDrawer.drawerContent>
 

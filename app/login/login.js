@@ -36,7 +36,7 @@ function onLoginTap(args) {
         })
         }).then((response1) => {
         const result = response1.content.toJSON();
-
+        //
         if (result.success){    
             usertoken = result.status;
             useridentity = result.name;            
@@ -67,8 +67,7 @@ function onLoginTap(args) {
 
             
                 //response.forEach(x => navigationContext.myterminalist.push(x));    
-            }, (e) => {       
-               
+            }, (e) => {
             });  
             //
             //==================const navigation entry used to be here
@@ -90,8 +89,10 @@ function onLoginTap(args) {
 
 
     }, (e) => {
-        console.log("Error: ");
-            console.log(e);
+        ac.busy = false;
+        txtfldstatus.text = "A network error occurred";
+        //console.log("Error: ");
+            //console.log(e);
     });
     //end validation logic
 

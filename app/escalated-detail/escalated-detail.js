@@ -95,7 +95,9 @@ function tapToReturn(args) {
     }).then((response) => {               
     myterminalist = response;
     //
-    myterminalist.sort(function(a, b){return parseInt(b.taskStatus) - parseInt(a.taskStatus)});
+    myterminalist.sort(function(a, b){
+        return parseInt(b.taskStatus) - parseInt(a.taskStatus)
+    });
 
             //if (response.taskStatus == 3){
               //  treaTed = "Treated";

@@ -75,6 +75,7 @@ function onNavigationItemTap(args) {
     else if (componentRoute == "escalated/escalated"){
         var ac = component.getViewById("escalateIndicator");
         var ifTreated = component.getViewById("treat");
+        var errorplaceholder = component.getViewById("errorholder");
         ac.busy = true;
         //Get Closed Tasks Request
         httpModule.getJSON({
@@ -83,7 +84,8 @@ function onNavigationItemTap(args) {
         headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+userToken} 
             }).then((response) => {               
             escldterminalist = response;
-            escldterminalist.sort(function(a, b){return parseInt(b.taskStatus) - parseInt(a.taskStatus)});
+            escldterminalist.sort(function(a, b)
+            {return parseInt(b.taskStatus) - parseInt(a.taskStatus)});
 
             //if (response.taskStatus == 3){
               //  treaTed = "Treated";
@@ -95,8 +97,7 @@ function onNavigationItemTap(args) {
                }  
                else{
                 obj.taskStatus = "";                
-               }           
-                               
+               }                               
             }
 
             frameModule.topmost().navigate({
@@ -115,8 +116,9 @@ function onNavigationItemTap(args) {
             const drawerComponent = application.getRootView();
             drawerComponent.closeDrawer();
         //response.forEach(x => navigationContext.myterminalist.push(x));    
-    }, (e) => {       
-       
+    }, (e) => {
+        ac.busy = false;
+        errorplaceholder.text="An error occured";             
     });    
     }
     else {   
