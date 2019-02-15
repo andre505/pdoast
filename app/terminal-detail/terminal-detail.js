@@ -29,7 +29,7 @@ function onCloseTap(args){
     var token = button.bindingContext.param3;
     //update request
     httpModule.request({
-        url: "http://172.19.15.88:5000/api/task/UpdateTask",
+        url: "http://172.19.8.170:8484/api/task/UpdateTask",
         method: "POST",
         headers: { "Content-Type": "application/json","Authorization":"Bearer"+ " "+token },
         content: JSON.stringify({
@@ -91,7 +91,7 @@ function tapToReturn(args) {
     //remove item    
     //navigate back to page
     httpModule.getJSON({
-        url: "http://172.19.15.88:5000/api/task/index",
+        url: "http://172.19.8.170:8484/api/task/index",
         method: "GET",
         headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+usertoken}
     }).then((response) => {               
@@ -131,7 +131,7 @@ function onEscalateTap(args){
     var token = button.bindingContext.param3;
     //escalate request
     httpModule.request({
-        url: "http://172.19.15.88:5000/api/task/EscalateTask",
+        url: "http://172.19.8.170:8484/api/task/EscalateTask",
         method: "POST",
         headers: { "Content-Type": "application/json","Authorization":"Bearer"+ " "+token},
         content: JSON.stringify({

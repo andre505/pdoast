@@ -34,7 +34,7 @@ function onNavigationItemTap(args) {
         ac.busy = true;
         //Get Closed Tasks Request
         httpModule.getJSON({
-        url: "http://172.19.15.88:5000/api/task/closedtasks",
+        url: "http://172.19.8.170:8484/api/task/closedtasks",
         method: "GET",
         headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+userToken} 
             }).then((response) => {               
@@ -79,7 +79,7 @@ function onNavigationItemTap(args) {
         ac.busy = true;
         //Get Closed Tasks Request
         httpModule.getJSON({
-        url: "http://172.19.15.88:5000/api/task/escalatedtasks",
+        url: "http://172.19.8.170:8484/api/task/escalatedtasks",
         method: "GET",
         headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+userToken} 
             }).then((response) => {               
