@@ -40,17 +40,20 @@
             <Label class="my-label" textWrap="true" text="{{'Email: '+ terminal.terminal.email}}" height="auto"/>        
             <StackLayout class="hr-dark m-10"></StackLayout>   
 
-            <Label class="my-label" textWrap="true" text="{{'Address: '+ terminal.terminal.PHYSICALADDR}}" height="auto"/>        
+            <Label class="my-label" textWrap="true" text="{{'Address: '+ terminal.terminal.physicalAddress}}" height="auto"/>        
             <StackLayout class="hr-dark m-10"></StackLayout> 
 
-            <Label class="my-label" textWrap="true" text="{{'Task: '+ terminal.title}}" height="auto"/> 
+            <Label class="my-label" textWrap="true" text="{{'Category: '+ terminal.title}}" height="auto"/> 
             <StackLayout class="hr-dark m-10"></StackLayout>   
+
+            <Label class="my-label" textWrap="true" text="{{'Detail: '+ terminal.detail}}" height="auto"/> 
+            <StackLayout class="hr-dark m-10"></StackLayout> 
 
             <Label id="taskcloselabel" class="closetask" textWrap="true" text="UPDATE TASK" height="auto"/>  
             
             <TextView id="commentlabel" class="textview" hint="Comments if any"></TextView>
             <GridLayout rows="auto" columns="auto,*">
-            <Button row="0" col="0" id="closebtn" text="Close" class="btn, btn-green" tap ="onCloseTap"></Button><Button row="0" col="1" id="escalatebtn" text="Escalate" class="btn, btn-escalate" tap ="onEscalateTap"></Button>
+            <Button row="0" col="0" id="escalatebtn" text="Escalate" class="btn, btn-escalate" tap ="onEscalateTap"></Button><Button row="0" col="1" id="closebtn" text="Close" class="btn, btn-green" tap ="onCloseTap"></Button>
             </GridLayout>
             <Label id="closesuccesslabel" class="pone" textWrap="true" text="TASK CLOSED SUCCESSFULLY" height="auto"/>
             <ActivityIndicator id="myIndicator" busy="false" width="20" height="20" color="orange" /> 

@@ -40,7 +40,7 @@
             <Label class="my-label" textWrap="true" text="{{'Email: '+ terminal.terminal.email}}" height="auto"/>        
             <StackLayout class="hr-dark m-10"></StackLayout>   
 
-            <Label class="my-label" textWrap="true" text="{{'Address: '+ terminal.terminal.PHYSICALADDR}}" height="auto"/>        
+            <Label class="my-label" textWrap="true" text="{{'Address: '+ terminal.terminal.physicalAddress}}" height="auto"/>        
             <StackLayout class="hr-dark m-10"></StackLayout> 
 
             <Label class="my-label" textWrap="true" text="{{'Task: '+ terminal.detail}}" height="auto"/> 
