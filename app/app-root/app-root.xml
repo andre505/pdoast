@@ -59,6 +59,12 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                         <Label row="0" col="1" text="Logout" class="p-r-10" />
                     </GridLayout>
 
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Settings' ? ' selected': '') }}"
+                        route="resetpass/resetpass" title="Logout" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf013;" class="fa" />
+                        <Label row="0" col="1" text="Logout" class="p-r-10" />
+                    </GridLayout>
+
                  <Label class="text-error" id="errorholder" dock="bottom" text="" height="30"/>
                     
                 </StackLayout>                
