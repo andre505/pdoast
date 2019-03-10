@@ -1,110 +1,65 @@
 const app = require("tns-core-modules/application");
 const httpModule = require("http");
 var view = require("ui/core/view");
-const LoginViewModel = require("./login-view-model");
+const ResetPassViewModel = require("./resetpass-view-model");
 const appSettings = require("application-settings");
 
 function onNavigatingTo(args) {
     const page = args.object;
-    page.bindingContext = new LoginViewModel();
+    const navigationContext = page.navigationContext;
+    page.bindingContext = navigationContext;         
     }
 
 function onResetTap(args) {
-    
     const button = args.object;
     const page = button.page;
     var ac = view.getViewById(page, "myIndicator");
     ac.busy = true;
-    var loginredirectURL ="";  
-    var textfield= view.getViewById(page, "usrtxtfld");
-    var textfield2= view.getViewById(page, "passtxtfld");
-    var txtfldstatus = view.getViewById(page, "loginstatus");
-    var user = textfield.text;
-    var pass = textfield2.text;
-    var usertoken = "";
-    var useridentity = ""; 
-    var myterminalist = [];   
+    var oldpas = view.getViewById(page, "oldpass");
+    var newpas = view.getViewById(page, "newpass");
+    var newpasrpt = view.getViewById(page, "newpassrpt");
+    var resetsuccesslbl = view.getViewById(page, "resetstatus");      
+    var token = button.bindingContext.param3;
+    var email = button.bindingContext.param1;
+
+    //values
+    var oldp =oldpas.text;
+    var newp = newpas.text;
+    var newprpt = newpasrpt.text;
     
-    //logic for validation
+    //escalate request
     httpModule.request({
-        url: "http://172.19.8.170:8484/api/auth/token",
+        url: "http://172.19.15.88:5000/api/auth/resetpass",
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json","Authorization":"Bearer"+ " "+token},
         content: JSON.stringify({
-            Username: user,
-            Password: pass
+            Email : email,
+            Password: oldp,
+            ConfirmPassword: newprpt            
         })
         }).then((response1) => {
         const result = response1.content.toJSON();
-        //
-        if (result.success){    
-            usertoken = result.status;
-            useridentity = result.name; 
-            
-            const savedusertoken = appSettings.getString(user);
-            if (username == null)
-            {
-            appSettings.setString(user, usertoken);
-            }
-            //var toke = appSettings.getString(user);
-            //Get Terminal List
-            httpModule.getJSON({
-                url: "http://172.19.8.170:8484/api/task/index",
-                method: "GET",
-                headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+usertoken}
-            }).then((response) => {               
-            myterminalist = response;
-            const navigationEntry = {
-                moduleName: "terminal/terminal",
-               context: {param1: useridentity,
-                        param2: user,
-                        param3: savedusertoken,
-                        terminalist: myterminalist},
-                        animated: true,
-                        transition: {
-                            name: "slide",
-                            duration: 380,
-                            curve: "easeIn"
-                        },
-                clearHistory: true               
-            };
-            page.frame.navigate(navigationEntry)    
 
+        if (result.Success = true){ 
             
-                //response.forEach(x => navigationContext.myterminalist.push(x));    
-            }, (e) => {
-            });  
-            //
-            //==================const navigation entry used to be here
-
-          // page.frame.navigate(navigationEntry)=====================================
-            
-            //frame.navigate(navigationEntry);            
-            //page.frame.navigate(navigationEntry);       
+            resetsuccesslbl.class="taskclosed";    
+            resetsuccesslbl.text="Task escalated successfully";          
+            ac.busy = false;
+            returnbtn.class="btn, btn-outline";
         }
         else 
-        {     
-            txtfldstatus.text = "Invalid Login";
-            ac.busy = false;
-            //page.frame.navigate("login/home-page"); 
-            //var signedinpdo = new pdo; --------------formerly before navigation entry
-            //signedinpdo.token = usertoken;
-            //signedinpdo.Username = useridentity;           
+        {   ac.busy = false;
+            resetsuccesslbl.class="taskclosederror";
+            resetsuccesslbl.text="An error occurred, please try again";
+           
+           
         }
 
+    }, (e) => {                        
+    }); 
 
-    }, (e) => {
-        ac.busy = false;
-        txtfldstatus.text = "A network error occurred";
-        //console.log("Error: ");
-            //console.log(e);
-    });
-    //end validation logic
+}  
 
-        
-   // return page;
-    //page.frame.navigate ("\""+loginredirectURL+"\"");
-}
 
 
 exports.onNavigatingTo = onNavigatingTo;

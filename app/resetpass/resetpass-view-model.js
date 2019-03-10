@@ -1,8 +1,8 @@
 const observableModule = require("tns-core-modules/data/observable");
 const SelectedPageService = require("../shared/selected-page-service");
 
-function LoginViewModel() {
-    SelectedPageService.getInstance().updateSelectedPage("Login");
+function ResetPassViewModel() {
+    SelectedPageService.getInstance().updateSelectedPage("Reset");
     var pdouser = {
         Username:"",
         Password:"",
@@ -16,4 +16,4 @@ function LoginViewModel() {
     return viewModel;
 }
 
-module.exports = LoginViewModel;
+module.exports = ResetPassViewModel;

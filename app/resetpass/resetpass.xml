@@ -4,6 +4,7 @@
     xmlns="http://schemas.nativescript.org/tns.xsd">
 
     <ActionBar class="action-bar-tone">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
         <!-- 
         Use the NavigationButton as a side-drawer button in Android
         because ActionItems are shown on the right side of the ActionBar
@@ -15,7 +16,7 @@
         because its function is to always navigate back in the application.
         -->
         
-        <Label class="action-bar-title" text="Login"></Label>
+        <Label class="action-bar-title" text="Reset Password"></Label>
     </ActionBar>
     
 
@@ -23,7 +24,7 @@
     <StackLayout row="0" class="page1">  
          <GridLayout columns="*,250,*">  
             <StackLayout col="1">  
-            
+            <Image src="~/images/res.png" stretch="aspectFit"></Image>
             </StackLayout>
          </GridLayout>
     </StackLayout>
@@ -33,20 +34,22 @@
                 <StackLayout class="form">
                  
                 <StackLayout class="input-field" >
-                 <TextField id="oldpass" class="input, input-border" id="passtxtfld" hint="new password" text="" secure="true"></TextField>
+                 <TextField id="oldpass" class="input, input-border" id="passtxtfld" hint="current password" text="" secure="true"></TextField>
                 </StackLayout> 
 
                 <StackLayout class="input-field" >
-                 <TextField id="newpass" class="input, input-border" id="passtxtfld" hint="repeat new password" text="" secure="true"></TextField>
+                 <TextField id="newpass" class="input, input-border" id="passtxtfld" hint="new password" text="" secure="true"></TextField>
                 </StackLayout>
 
                 <StackLayout class="input-field" >
-                 <TextField id="newpassrpt"class="input, input-border" id="passtxtfld" hint="repeat new password" text="" secure="true"></TextField>
+                 <TextField id="newpassrpt" class="input, input-border" id="passtxtfld" hint="repeat new password" text="" secure="true"></TextField>
                 </StackLayout>  
 
                 <Button text="Reset" class="btn btn-orange" tap ="onResetTap"></Button>   
                 <ActivityIndicator id="myIndicator" busy="false" width="30" height="30" color="DeepSkyBlue" />                
                  </StackLayout>  
+
+                 <Label class="p" id="resetstatus" text=""/>
                  
     </FlexboxLayout>
     </GridLayout>

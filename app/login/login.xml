@@ -32,10 +32,10 @@
      
                 <StackLayout class="form">
                  <StackLayout class="input-field">
-                 <TextField class="input, input-border" id="usrtxtfld" hint="Username" text="" keyboardType="email"></TextField>
+                 <TextField class="input, input-border" id="usrtxtfld" hint="Username" text="olawale.ogunlade@up-ng.com" keyboardType="email"></TextField>
                 </StackLayout>
                 <StackLayout class="input-field" >
-                 <TextField class="input, input-border" id="passtxtfld" hint="Password" text="" secure="true"></TextField>
+                 <TextField class="input, input-border" id="passtxtfld" hint="Password" text="Admin@12345" secure="true"></TextField>
                 </StackLayout> 
                 <Button text="Login" class="btn btn-orange" tap ="onLoginTap"></Button>   
                 <ActivityIndicator id="myIndicator" busy="false" width="30" height="30" color="DeepSkyBlue" />                
