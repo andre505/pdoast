@@ -29,7 +29,7 @@ function onLoginTap(args) {
     
     //logic for validation
     httpModule.request({
-        url: "http://172.19.15.88:5000/api/auth/token",
+        url: "http://172.19.8.170:8484/api/auth/token",
         method: "POST",
         headers: { "Content-Type": "application/json" },
         content: JSON.stringify({

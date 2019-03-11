@@ -31,7 +31,7 @@ function onResetTap(args) {
     {
     //escalate request
     httpModule.request({
-        url: "http://172.19.15.88:5000/api/auth/resetpass",
+        url: "http://172.19.8.170:8484/api/auth/resetpass",
         method: "POST",
         headers: { "Content-Type": "application/json","Authorization":"Bearer"+ " "+token},
         content: JSON.stringify({

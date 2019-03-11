@@ -12,7 +12,7 @@ function onNavigatingTo(args) {
     var usertoken = appSettings.getString("pdoToken");
      ///
      httpModule.getJSON({
-        url: "http://172.19.15.88:5000/api/task/index",
+        url: "http://172.19.8.170:8484/api/task/index",
         method: "GET",
         headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+usertoken}
     }).then((response) => {               

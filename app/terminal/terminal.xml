@@ -28,7 +28,7 @@
         <Label text="{{terminalist.length}}"></Label>  
     </StackLayout>
 
-    <ListView class="list-group" items="{{ terminalist }}" pullToRefresh="true" itemTap="onItemTap" >
+    <ListView class="list-group" items="{{ terminalist }}" pullToRefresh="true" itemTap="onItemTap">
     <ListView.itemTemplate>
         <GridLayout class="list-group-item" rows="45, auto, *" columns="70,*">
         <Image row="0" col="0" src= "~/images/pos_terminal_icon.png" class="thumb img-circle" rowSpan="2"></Image>
