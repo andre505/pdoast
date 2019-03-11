@@ -20,11 +20,11 @@
     </ActionBar>
     
 
-    <GridLayout rows="150,250">
+    <GridLayout rows="150,*">
     <StackLayout row="0" class="page1">  
-         <GridLayout columns="*,250,*">  
+         <GridLayout columns="*,180,*">  
             <StackLayout col="1">  
-            <Image src="~/images/res.png" stretch="aspectFit"></Image>
+            <Image src="~/images/res2.png" stretch="aspectFit"></Image>
             </StackLayout>
          </GridLayout>
     </StackLayout>
@@ -34,22 +34,22 @@
                 <StackLayout class="form">
                  
                 <StackLayout class="input-field" >
-                 <TextField id="oldpass" class="input, input-border" id="passtxtfld" hint="current password" text="" secure="true"></TextField>
+                 <TextField class="input, input-border" id="oldpasss" hint="old password" text="Admin@12345" secure="true"></TextField>
                 </StackLayout> 
 
                 <StackLayout class="input-field" >
-                 <TextField id="newpass" class="input, input-border" id="passtxtfld" hint="new password" text="" secure="true"></TextField>
+                 <TextField class="input, input-border" id="newpasss" hint="new password" text="Admin@123456" secure="true"></TextField>
                 </StackLayout>
 
                 <StackLayout class="input-field" >
-                 <TextField id="newpassrpt" class="input, input-border" id="passtxtfld" hint="repeat new password" text="" secure="true"></TextField>
+                 <TextField class="input, input-border" id="rptnewpasss" hint="repeat new password" text="Admin@123456" secure="true"></TextField>
                 </StackLayout>  
 
-                <Button text="Reset" class="btn btn-orange" tap ="onResetTap"></Button>   
-                <ActivityIndicator id="myIndicator" busy="false" width="30" height="30" color="DeepSkyBlue" />                
+                <Button text="Reset" class="btn btn-orange" id="resetbtn" tap ="onResetTap"></Button>   
+                <ActivityIndicator id="myIndicator1" busy="false" width="30" height="30" color="DeepSkyBlue" />   
+                <Label class="p" id="resetstatus1" text="" textWrap="true"/>             
                  </StackLayout>  
-
-                 <Label class="p" id="resetstatus" text=""/>
+                 
                  
     </FlexboxLayout>
     </GridLayout>

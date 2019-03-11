@@ -24,6 +24,8 @@ function onLoginTap(args) {
     var usertoken = "";
     var useridentity = ""; 
     var myterminalist = [];   
+    var savedpass = "";
+    var savedemail = "";
     
     //logic for validation
     httpModule.request({
@@ -39,9 +41,19 @@ function onLoginTap(args) {
         //
         if (result.success){    
             usertoken = result.status;
-            useridentity = result.name;            
-            appSettings.setString(user, usertoken);
-            //var toke = appSettings.getString(user);
+            useridentity = result.name;     
+            //app settings  
+            if (!appSettings.hasKey(user+"Name"))
+            {
+            appSettings.setString("pdoName", useridentity);
+            appSettings.setString("pdoPassword", pass);
+            appSettings.setString("pdoToken", usertoken);
+            appSettings.setString("pdoEmail", user);
+            //get
+            savedpass = appSettings.getString(user+"-pass");
+            savedemail = appSettings.getString(user+"-email");
+            //end app settings
+            }
             //Get Terminal List
             httpModule.getJSON({
                 url: "http://172.19.15.88:5000/api/task/index",

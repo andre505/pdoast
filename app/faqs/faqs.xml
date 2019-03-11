@@ -24,6 +24,6 @@
 
     <GridLayout class="page-content">
         <Label class="page-icon fa" text="&#xf005;"></Label>
-        <Label class="page-placeholder" text="<!-- How to -->"></Label>
+        <Label class="page-placeholder" text="<!-- Coming Soon -->"></Label>
     </GridLayout>
 </Page>
