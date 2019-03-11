@@ -9,6 +9,9 @@
         because ActionItems are shown on the right side of the ActionBar
         -->
         <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+        <!--<NavigationButton class="" ios:visibility="collapsed" icon="~/images/reficon.png" tap="onDrawerButtonTap"></NavigationButton>-->
+        <Image class="refreshicon" src="~/images/reficon.png" stretch="none"></Image>
+
         <!-- 
         Use the ActionItem for IOS with position set to left. Using the
         NavigationButton as a side-drawer button in iOS is not possible,
@@ -19,13 +22,13 @@
             tap="onDrawerButtonTap"
             ios.position="left">
         </ActionItem>
+        
         <Label class="action-bar-title" text="Tasks"></Label>
     </ActionBar>    
     <StackLayout>             
         <Label class="p" id="tokeholder" text="{{param3}}"></Label>  
         <Label text="{{terminalist.length}}"></Label>  
     </StackLayout>
-
 
     <ListView class="list-group" items="{{ terminalist }}" pullToRefresh="true" itemTap="onItemTap" >
     <ListView.itemTemplate>
@@ -34,11 +37,10 @@
         <Label width="500" textWrap="true" row="0" col="1" text="{{terminal.merchantName}}" class="h3"/>
         <Label row="1" col="1" text="{{terminal.physicalAddress}}" class="h4" />
         <Label row="2" col="0" text="{{terminal.terminalId}}" class="termid, ash" />
-        <Label row="2" col="1" text="{{'Task: '+detail}}" class="list-group-item-text, orange" />
-
-        
+        <Label row="2" col="1" text="{{'Task: '+detail}}" class="list-group-item-text, orange" />        
         </GridLayout>
-    </ListView.itemTemplate>
-    </ListView>        
-   
+        
+    </ListView.itemTemplate>       
+    </ListView>       
+          
 </Page>

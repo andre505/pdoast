@@ -34,15 +34,15 @@
                 <StackLayout class="form">
                  
                 <StackLayout class="input-field" >
-                 <TextField class="input, input-border" id="oldpasss" hint="old password" text="Admin@12345" secure="true"></TextField>
+                 <TextField class="input, input-border" id="oldpasss" hint="old password" text="" secure="true"></TextField>
                 </StackLayout> 
 
                 <StackLayout class="input-field" >
-                 <TextField class="input, input-border" id="newpasss" hint="new password" text="Admin@123456" secure="true"></TextField>
+                 <TextField class="input, input-border" id="newpasss" hint="new password" text="" secure="true"></TextField>
                 </StackLayout>
 
                 <StackLayout class="input-field" >
-                 <TextField class="input, input-border" id="rptnewpasss" hint="repeat new password" text="Admin@123456" secure="true"></TextField>
+                 <TextField class="input, input-border" id="rptnewpasss" hint="repeat new password" text="" secure="true"></TextField>
                 </StackLayout>  
 
                 <Button text="Reset" class="btn btn-orange" id="resetbtn" tap ="onResetTap"></Button>   

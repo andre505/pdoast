@@ -3,17 +3,26 @@ const TerminalViewModel = require("./terminal-view-model");
 const httpModule = require("http");
 var view = require("ui/core/view");
 const fromObject = require("tns-core-modules/data/observable").fromObject;
+const appSettings = require("application-settings");
+
 
 function onNavigatingTo(args) {
-    const page = args.object;
-    const navigationContext = page.navigationContext;
-    page.bindingContext = navigationContext;       
+        
     ///
-    
-
-    ///
-    //var label = view.getViewById(page, "tokeholder");
-    //var bearertoken = label.text;     
+    var usertoken = appSettings.getString("pdoToken");
+     ///
+     httpModule.getJSON({
+        url: "http://172.19.15.88:5000/api/task/index",
+        method: "GET",
+        headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+usertoken}
+    }).then((response) => {               
+        myterminalist = response;
+        const page = args.object;
+        const navigationContext = page.navigationContext;
+          
+        navigationContext.terminalist = response; 
+        page.bindingContext = navigationContext;
+    });
 }
 
 function onItemTap(args){

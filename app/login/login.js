@@ -43,30 +43,22 @@ function onLoginTap(args) {
             usertoken = result.status;
             useridentity = result.name;     
             //app settings  
-            if (!appSettings.hasKey(user+"Name"))
+            if (!appSettings.hasKey("pdoName"))
             {
             appSettings.setString("pdoName", useridentity);
             appSettings.setString("pdoPassword", pass);
             appSettings.setString("pdoToken", usertoken);
             appSettings.setString("pdoEmail", user);
             //get
-            savedpass = appSettings.getString(user+"-pass");
-            savedemail = appSettings.getString(user+"-email");
+            savedpass = appSettings.getString("pdoPassword");
+            savedemail = appSettings.getString("pdoEmail");
             //end app settings
             }
-            //Get Terminal List
-            httpModule.getJSON({
-                url: "http://172.19.15.88:5000/api/task/index",
-                method: "GET",
-                headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+usertoken}
-            }).then((response) => {               
-            myterminalist = response;
             const navigationEntry = {
                 moduleName: "terminal/terminal",
                context: {param1: useridentity,
                         param2: user,
-                        param3: usertoken,
-                        terminalist: myterminalist},
+                        param3: usertoken},
                         animated: true,
                         transition: {
                             name: "slide",
@@ -75,12 +67,7 @@ function onLoginTap(args) {
                         },
                 clearHistory: true               
             };
-            page.frame.navigate(navigationEntry)    
-
-            
-                //response.forEach(x => navigationContext.myterminalist.push(x));    
-            }, (e) => {
-            });  
+            page.frame.navigate(navigationEntry)     
             //
             //==================const navigation entry used to be here
 
