@@ -8,9 +8,7 @@
         Use the NavigationButton as a side-drawer button in Android
         because ActionItems are shown on the right side of the ActionBar
         -->
-        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
-        <!--<NavigationButton class="" ios:visibility="collapsed" icon="~/images/reficon.png" tap="onDrawerButtonTap"></NavigationButton>-->
-        <Image class="refreshicon" src="~/images/reficon.png" stretch="none"></Image>
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>       
 
         <!-- 
         Use the ActionItem for IOS with position set to left. Using the
