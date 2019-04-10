@@ -50,7 +50,6 @@
                 <Label class="p" id="resetstatus1" text="" textWrap="true"/>             
                  </StackLayout>  
                  
-                 
     </FlexboxLayout>
     </GridLayout>
 </Page>

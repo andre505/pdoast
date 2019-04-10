@@ -7,22 +7,27 @@ const appSettings = require("application-settings");
 
 
 function onNavigatingTo(args) {
-        
-    ///
-    var usertoken = appSettings.getString("pdoToken");
-     ///
-     httpModule.getJSON({
-        url: "http://172.19.8.170:8484/api/task/index",
+    
+    var usertoken = appSettings.getString("pdoToken");    
+      
+    httpModule.getJSON({
+       url: "http://172.19.8.170:8484/api/task/index",
         method: "GET",
         headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+usertoken}
-    }).then((response) => {               
-        myterminalist = response;
-        const page = args.object;
-        const navigationContext = page.navigationContext;
-          
-        navigationContext.terminalist = response; 
-        page.bindingContext = navigationContext;
-    });
+   }).then((response) => {               
+       myterminalist = response;
+      const page = args.object;
+      const navigationContext = page.navigationContext;
+         
+     navigationContext.terminalist = response; 
+       page.bindingContext = navigationContext;
+   });
+
+     //const page = args.object;
+        //const navigationContext = page.navigationContext;
+       // page.bindingContext = navigationContext;    
+           
+     ///===============
 }
 
 function onItemTap(args){

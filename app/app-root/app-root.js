@@ -3,6 +3,7 @@ const frameModule = require("tns-core-modules/ui/frame");
 const httpModule = require("http");
 const AppRootViewModel = require("./app-root-view-model");
 var view = require("ui/core/view");
+const appSettings = require("application-settings");
 
 
 function onLoaded(args) {
@@ -120,6 +121,20 @@ function onNavigationItemTap(args) {
         ac.busy = false;
         errorplaceholder.text="An error occured";             
     });    
+    }
+
+    else if (componentRoute == "login/login"){
+        appSettings.remove("pdoToken");
+        frameModule.topmost().navigate({
+            moduleName: componentRoute,
+            context: bindingContext,        
+            transition: {
+                name: "fade"
+            }
+        }); 
+        const drawerComponent = application.getRootView();
+        drawerComponent.closeDrawer();           
+        
     }
     else {   
     frameModule.topmost().navigate({

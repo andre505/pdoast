@@ -26,30 +26,30 @@
     <GridLayout rows="10, auto, *" columns="10,*,5">
         <StackLayout row="1" col="1">
             <Label class="my-label" textWrap="true" text="{{'Terminal ID: ' + terminal.terminal.terminalId}}"  height="auto"/>
-            <StackLayout class="hr-dark m-10"></StackLayout>
+            <StackLayout class="hr-dark m-11"></StackLayout>
 
             <Label class="my-label" textWrap="true" text="{{'Merchant Name: '+ terminal.terminal.merchantName}}" height="auto"/>
-            <StackLayout class="hr-dark m-10"></StackLayout>
+            <StackLayout class="hr-dark m-11"></StackLayout>
 
             <Label class="my-label" textWrap="true" text="{{'Contact Person: '+ terminal.terminal.contactName}}" height="auto"/>
-            <StackLayout class="hr-dark m-10"></StackLayout>
+            <StackLayout class="hr-dark m-11"></StackLayout>
 
             <Label class="my-label" textWrap="true" text="{{'Contact Phone: 0'+ terminal.terminal.mobilePhone}}" height="auto"/>
-            <StackLayout class="hr-dark m-10"></StackLayout>
+            <StackLayout class="hr-dark m-11"></StackLayout>
 
             <Label class="my-label" textWrap="true" text="{{'Email: '+ terminal.terminal.email}}" height="auto"/>        
-            <StackLayout class="hr-dark m-10"></StackLayout>   
+            <StackLayout class="hr-dark m-11"></StackLayout>   
 
             <Label class="my-label" textWrap="true" text="{{'Address: '+ terminal.terminal.physicalAddress}}" height="auto"/>        
-            <StackLayout class="hr-dark m-10"></StackLayout> 
+            <StackLayout class="hr-dark m-11"></StackLayout> 
 
             <Label class="my-label" textWrap="true" text="{{'Category: '+ terminal.title}}" height="auto"/> 
-            <StackLayout class="hr-dark m-10"></StackLayout>   
+            <StackLayout class="hr-dark m-11"></StackLayout>   
 
             <Label class="my-label" textWrap="true" text="{{'Detail: '+ terminal.detail}}" height="auto"/> 
-            <StackLayout class="hr-dark m-10"></StackLayout> 
+            <StackLayout class="hr-dark m-11"></StackLayout> 
 
-            <Label id="taskcloselabel" class="closetask" textWrap="true" text="UPDATE TASK" height="auto"/>  
+            <Label id="taskcloselabel" class="closetask" textWrap="true" text="UPDATE TASK" height="auto"/> 
             
             <TextView id="commentlabel" class="textview" hint="Comments if any"></TextView>
             <GridLayout rows="auto" columns="auto,*">

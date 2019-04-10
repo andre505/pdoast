@@ -26,7 +26,7 @@ function onLoginTap(args) {
     var myterminalist = [];   
     var savedpass = "";
     var savedemail = "";
-    
+    //
     //logic for validation
     httpModule.request({
         url: "http://172.19.8.170:8484/api/auth/token",
@@ -43,31 +43,51 @@ function onLoginTap(args) {
             usertoken = result.status;
             useridentity = result.name;     
             //app settings  
-            if (!appSettings.hasKey("pdoName"))
+
+            if ((!appSettings.hasKey("pdoToken")) && (!appSettings.hasKey("pdoName")))
             {
             appSettings.setString("pdoName", useridentity);
-            appSettings.setString("pdoPassword", pass);
-            appSettings.setString("pdoToken", usertoken);
+            appSettings.setString("pdoPassword", pass);           
             appSettings.setString("pdoEmail", user);
+            appSettings.setString("pdoToken", usertoken);
+
             //get
             savedpass = appSettings.getString("pdoPassword");
             savedemail = appSettings.getString("pdoEmail");
             //end app settings
             }
+            else if ((!appSettings.hasKey("pdoToken"))) { 
+                appSettings.setString("pdoToken", usertoken);
+            }
+            
+            //Get Terminal List
+            httpModule.getJSON({
+                url: "http://172.19.8.170:8484/api/task/index",
+                method: "GET",
+                headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+usertoken}
+            }).then((response) => {  
+                //const result = response.content.toJSON();           
+            myterminalist = response;
             const navigationEntry = {
                 moduleName: "terminal/terminal",
                context: {param1: useridentity,
                         param2: user,
-                        param3: usertoken},
+                        param3: usertoken,
+                        terminalist: myterminalist},
                         animated: true,
                         transition: {
                             name: "slide",
                             duration: 380,
                             curve: "easeIn"
                         },
-                clearHistory: true               
+                clearHistory: true                
             };
-            page.frame.navigate(navigationEntry)     
+            page.frame.navigate(navigationEntry)    
+
+            
+                //response.forEach(x => navigationContext.myterminalist.push(x));    
+            }, (e) => {
+            });  
             //
             //==================const navigation entry used to be here
 

@@ -4,6 +4,8 @@ const httpModule = require("http");
 const ListPicker = require("tns-core-modules/ui/list-picker").ListPicker;
 const fromObject = require("tns-core-modules/data/observable").fromObject;
 const switchModule = require("tns-core-modules/ui/switch");
+var dialogs = require("tns-core-modules/ui/dialogs");
+
 
 
 function onNavigatingTo(args) {
@@ -29,6 +31,16 @@ function onCloseTap(args){
     var comment = commentlbl.text;
     var token = button.bindingContext.tokenparam;
     //update request
+
+    dialogs.confirm({
+        title: "Close Task",
+        message: "Are you sure you want to close this task?",
+        okButtonText: "Close Task",
+        cancelButtonText: "Cancel",
+       // neutralButtonText: "Neutral text"
+    }).then(function (result) {
+    if (result){
+    ac.busy = true;
     httpModule.request({
         url: "http://172.19.8.170:8484/api/task/UpdateTask",
         method: "POST",
@@ -67,6 +79,10 @@ function onCloseTap(args){
        
     }); 
     
+}
+ac.busy = false;
+});
+
 }
 
 
