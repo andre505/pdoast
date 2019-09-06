@@ -35,7 +35,7 @@ function onNavigationItemTap(args) {
         ac.busy = true;
         //Get Closed Tasks Request
         httpModule.getJSON({
-        url: "http://172.19.8.170:8484/api/task/closedtasks",
+        url: "https://uppdoasst.up-ng.com/mobile/api/task/closedtasks",
         method: "GET",
         headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+userToken} 
             }).then((response) => {               
@@ -80,7 +80,7 @@ function onNavigationItemTap(args) {
         ac.busy = true;
         //Get Closed Tasks Request
         httpModule.getJSON({
-        url: "http://172.19.8.170:8484/api/task/escalatedtasks",
+        url: "https://uppdoasst.up-ng.com/mobile/api/task/escalatedtasks",
         method: "GET",
         headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+userToken} 
             }).then((response) => {               

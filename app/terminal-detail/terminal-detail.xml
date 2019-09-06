@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <Page
     class="page"
     navigatingTo="onNavigatingTo"  
@@ -63,4 +64,71 @@
         </StackLayout>
     </GridLayout>
 
+=======
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar-tone">
+        <!-- 
+        Use the NavigationButton as a side-drawer button in Android
+        because ActionItems are shown on the right side of the ActionBar
+        -->
+        <!--<NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>-->
+        <!-- 
+        Use the ActionItem for IOS with position set to left. Using the
+        NavigationButton as a side-drawer button in iOS is not possible,
+        because its function is to always navigate back in the application.
+        -->
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Terminal Details"></Label>
+    </ActionBar>
+    
+    
+    <GridLayout rows="10, auto, *" columns="10,*,5">
+        <StackLayout row="1" col="1">
+            <Label class="my-label" textWrap="true" text="{{'Terminal ID: ' + terminal.terminal.terminalId}}"  height="auto"/>
+            <StackLayout class="hr-dark m-11"></StackLayout>
+
+            <Label class="my-label" textWrap="true" text="{{'Merchant Name: '+ terminal.terminal.merchantName}}" height="auto"/>
+            <StackLayout class="hr-dark m-11"></StackLayout>
+
+            <Label class="my-label" textWrap="true" text="{{'Contact Person: '+ terminal.terminal.contactName}}" height="auto"/>
+            <StackLayout class="hr-dark m-11"></StackLayout>
+
+            <Label class="my-label" textWrap="true" text="{{'Contact Phone: 0'+ terminal.terminal.mobilePhone}}" height="auto"/>
+            <StackLayout class="hr-dark m-11"></StackLayout>
+
+            <Label class="my-label" textWrap="true" text="{{'Email: '+ terminal.terminal.email}}" height="auto"/>        
+            <StackLayout class="hr-dark m-11"></StackLayout>   
+
+            <Label class="my-label" textWrap="true" text="{{'Address: '+ terminal.terminal.physicalAddress}}" height="auto"/>        
+            <StackLayout class="hr-dark m-11"></StackLayout> 
+
+            <Label class="my-label" textWrap="true" text="{{'Category: '+ terminal.title}}" height="auto"/> 
+            <StackLayout class="hr-dark m-11"></StackLayout>   
+
+            <Label class="my-label" textWrap="true" text="{{'Detail: '+ terminal.detail}}" height="auto"/> 
+            <StackLayout class="hr-dark m-11"></StackLayout> 
+
+            <Label id="taskcloselabel" class="closetask" textWrap="true" text="UPDATE TASK" height="auto"/> 
+            
+            <TextView id="commentlabel" class="textview" hint="Comments if any"></TextView>
+            <GridLayout rows="auto" columns="auto,*">
+            <Button row="0" col="0" id="escalatebtn" text="Escalate" class="btn, btn-escalate" tap ="onEscalateTap"></Button><Button row="0" col="1" id="closebtn" text="Close" class="btn, btn-green" tap ="onCloseTap"></Button>
+            </GridLayout>
+            <Label id="closesuccesslabel" class="pone" textWrap="true" text="TASK CLOSED SUCCESSFULLY" height="auto"/>
+            <ActivityIndicator id="myIndicator" busy="false" width="20" height="20" color="orange" /> 
+            <Button id="terminalreturn" class="pone" text="Back to Tasks" height="auto" tap ="tapToReturn"></Button>   
+            
+                
+        </StackLayout>
+    </GridLayout>
+
+>>>>>>> rep cm
   </Page>

@@ -29,7 +29,7 @@ function onLoginTap(args) {
     //
     //logic for validation
     httpModule.request({
-        url: "http://172.19.8.170:8484/api/auth/token",
+        url: "https://uppdoasst.up-ng.com/mobile/api/auth/token",
         method: "POST",
         headers: { "Content-Type": "application/json" },
         content: JSON.stringify({
@@ -62,11 +62,10 @@ function onLoginTap(args) {
             
             //Get Terminal List
             httpModule.getJSON({
-                url: "http://172.19.8.170:8484/api/task/index",
+                url: "https://uppdoasst.up-ng.com/mobile/api/task/index",
                 method: "GET",
                 headers: {"Content-Type": "application/json","Authorization":"Bearer"+ " "+usertoken}
-            }).then((response) => {  
-                //const result = response.content.toJSON();           
+            }).then((response) => {               
             myterminalist = response;
             const navigationEntry = {
                 moduleName: "terminal/terminal",
